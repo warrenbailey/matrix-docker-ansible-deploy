@@ -1786,7 +1786,7 @@ People who build their own custom playbook from our roles should be aware that:
 
 - the `matrix-coturn` role and actually starting Coturn (e.g. `--tags=start`), requires that certificates are already put in place. For this reason, it's usually a good idea to have the `matrix-coturn` role execute after `matrix-nginx-proxy` (which retrieves the certificates).
 
-- there are a few variables that can help you enable TLS support for Coturn. See the `matrix-coturn` section in [group_vars/matrix-servers](./group_vars/matrix-servers).
+- there are a few variables that can help you enable TLS support for Coturn. See the `matrix-coturn` section in [group_vars/matrix-servers](playbooks/group_vars/matrix-servers).
 
 
 # 2019-03-12
@@ -1940,7 +1940,7 @@ Using the [devture/exim-relay](https://hub.docker.com/r/devture/exim-relay) cont
 ## (BC Break) Making the playbook's roles more independent of one another
 
 The following change **affects people running a more non-standard setup** - external Postgres or using our roles in their own other playbook.
-**Most users don't need to do anything**, besides becoming aware of the new glue variables file [`group_vars/matrix-servers`](group_vars/matrix-servers).
+**Most users don't need to do anything**, besides becoming aware of the new glue variables file [`group_vars/matrix-servers`](playbooks/group_vars/matrix-servers).
 
 Because people like using the playbook's components independently (outside of this playbook) and because it's much better for maintainability, we've continued working on separating them.
 Still, we'd like to offer a turnkey solution for running a fully-featured Matrix server, so this playbook remains important for wiring up the various components.
@@ -1954,13 +1954,13 @@ In addition, the following components can now be completely disabled (for those 
 
 The following changes had to be done:
 
-- glue variables had to be introduced to the playbook, so it can wire together the various components. Those glue vars are stored in the [`group_vars/matrix-servers`](group_vars/matrix-servers) file. When overriding variables for a given component (role), you need to be aware of both the role defaults (`role/ROLE/defaults/main.yml`) and the role's corresponding section in the [`group_vars/matrix-servers`](group_vars/matrix-servers) file.
+- glue variables had to be introduced to the playbook, so it can wire together the various components. Those glue vars are stored in the [`group_vars/matrix-servers`](playbooks/group_vars/matrix-servers) file. When overriding variables for a given component (role), you need to be aware of both the role defaults (`role/ROLE/defaults/main.yml`) and the role's corresponding section in the [`group_vars/matrix-servers`](playbooks/group_vars/matrix-servers) file.
 
 - `matrix_postgres_use_external` has been superceeded by the more consistently named `matrix_postgres_enabled` variable and a few other `matrix_synapse_database_` variables. See the [Using an external PostgreSQL server (optional)](docs/configuring-playbook-external-postgres.md) documentation page for an up-to-date replacement.
 
 - Postgres tools (`matrix-postgres-cli` and `matrix-make-user-admin`) are no longer installed if you're not enabling the `matrix-postgres` role (`matrix_postgres_enabled: false`)
 
-- roles, being more independent now, are more minimal and do not do so much magic for you. People that are building their own playbook using our roles will definitely need to take a look at the [`group_vars/matrix-servers`](group_vars/matrix-servers) file and adapt their playbooks with the same (or similar) wiring logic.
+- roles, being more independent now, are more minimal and do not do so much magic for you. People that are building their own playbook using our roles will definitely need to take a look at the [`group_vars/matrix-servers`](playbooks/group_vars/matrix-servers) file and adapt their playbooks with the same (or similar) wiring logic.
 
 
 # 2019-01-16
