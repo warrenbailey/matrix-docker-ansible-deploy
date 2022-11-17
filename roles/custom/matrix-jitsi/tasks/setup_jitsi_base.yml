@@ -1,7 +1,7 @@
 ---
 
 - ansible.builtin.import_role:
-    name: custom/matrix-base
+    name: roles/custom/matrix-base
     tasks_from: ensure_openssl_installed
 
 #

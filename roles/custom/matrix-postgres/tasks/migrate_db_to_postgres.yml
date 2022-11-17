@@ -137,7 +137,7 @@
 - when: "matrix_postgres_db_migration_request.additional_psql_statements_list | default([]) | length > 0"
   block:
     - ansible.builtin.import_role:
-        name: custom/matrix-postgres
+        name: roles/custom/matrix-postgres
         tasks_from: detect_existing_postgres_version
 
     - ansible.builtin.set_fact:

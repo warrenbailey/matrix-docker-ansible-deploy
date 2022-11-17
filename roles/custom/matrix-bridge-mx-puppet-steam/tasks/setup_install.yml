@@ -62,7 +62,7 @@
               systemd_services_to_stop: ['matrix-mx-puppet-steam.service']
 
         - ansible.builtin.import_role:
-            name: custom/matrix-postgres
+            name: roles/custom/matrix-postgres
             tasks_from: migrate_db_to_postgres
 
         - ansible.builtin.set_fact:

@@ -10,7 +10,7 @@
     when: not matrix_postgres_enabled
 
   - ansible.builtin.import_role:
-      name: custom/matrix-postgres
+      name: roles/custom/matrix-postgres
       tasks_from: detect_existing_postgres_version
 
   - name: Fail if detected Postgres version is unsupported

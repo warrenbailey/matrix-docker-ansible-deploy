@@ -5,91 +5,91 @@
 
   roles:
     # Most of the roles below are not distributed with the playbook, but downloaded separately using `ansible-galaxy` via the `make roles` command (see `Makefile`).
-    - role: galaxy/com.devture.ansible.role.playbook_help
+    - role: roles/galaxy/com.devture.ansible.role.playbook_help
 
-    - role: galaxy/com.devture.ansible.role.systemd_docker_base
+    - role: roles/galaxy/com.devture.ansible.role.systemd_docker_base
 
-    - role: custom/matrix_playbook_migration
+    - role: roles/custom/matrix_playbook_migration
 
     - when: devture_timesync_installation_enabled | bool
-      role: galaxy/com.devture.ansible.role.timesync
+      role: roles/galaxy/com.devture.ansible.role.timesync
       tags:
         - setup-timesync
         - setup-all
 
-    - custom/matrix-base
-    - custom/matrix-dynamic-dns
-    - custom/matrix-mailer
-    - custom/matrix-postgres
-    - custom/matrix-redis
-    - custom/matrix-corporal
-    - custom/matrix-bridge-appservice-discord
-    - custom/matrix-bridge-appservice-slack
-    - custom/matrix-bridge-appservice-webhooks
-    - custom/matrix-bridge-appservice-irc
-    - custom/matrix-bridge-appservice-kakaotalk
-    - custom/matrix-bridge-beeper-linkedin
-    - custom/matrix-bridge-go-skype-bridge
-    - custom/matrix-bridge-mautrix-facebook
-    - custom/matrix-bridge-mautrix-twitter
-    - custom/matrix-bridge-mautrix-hangouts
-    - custom/matrix-bridge-mautrix-googlechat
-    - custom/matrix-bridge-mautrix-instagram
-    - custom/matrix-bridge-mautrix-signal
-    - custom/matrix-bridge-mautrix-telegram
-    - custom/matrix-bridge-mautrix-whatsapp
-    - custom/matrix-bridge-mautrix-discord
-    - custom/matrix-bridge-mx-puppet-discord
-    - custom/matrix-bridge-mx-puppet-groupme
-    - custom/matrix-bridge-mx-puppet-steam
-    - custom/matrix-bridge-mx-puppet-slack
-    - custom/matrix-bridge-mx-puppet-twitter
-    - custom/matrix-bridge-mx-puppet-instagram
-    - custom/matrix-bridge-sms
-    - custom/matrix-bridge-heisenbridge
-    - custom/matrix-bridge-hookshot
-    - custom/matrix-bot-matrix-reminder-bot
-    - custom/matrix-bot-matrix-registration-bot
-    - custom/matrix-bot-maubot
-    - custom/matrix-bot-buscarron
-    - custom/matrix-bot-honoroit
-    - custom/matrix-bot-postmoogle
-    - custom/matrix-bot-go-neb
-    - custom/matrix-bot-mjolnir
-    - custom/matrix-cactus-comments
-    - custom/matrix-synapse
-    - custom/matrix-dendrite
-    - custom/matrix-conduit
-    - custom/matrix-synapse-admin
-    - custom/matrix-prometheus-node-exporter
-    - custom/matrix-prometheus-postgres-exporter
-    - custom/matrix-prometheus
-    - custom/matrix-grafana
-    - custom/matrix-registration
-    - custom/matrix-client-element
-    - custom/matrix-client-hydrogen
-    - custom/matrix-client-cinny
-    - custom/matrix-jitsi
-    - custom/matrix-ldap-registration-proxy
-    - custom/matrix-ma1sd
-    - custom/matrix-dimension
-    - custom/matrix-etherpad
-    - custom/matrix-email2matrix
-    - custom/matrix-sygnal
-    - custom/matrix-ntfy
-    - custom/matrix-nginx-proxy
-    - custom/matrix-coturn
-    - custom/matrix-aux
-    - custom/matrix-postgres-backup
-    - custom/matrix-backup-borg
-    - custom/matrix-user-creator
-    - custom/matrix-common-after
+    - roles/custom/matrix-base
+    - roles/custom/matrix-dynamic-dns
+    - roles/custom/matrix-mailer
+    - roles/custom/matrix-postgres
+    - roles/custom/matrix-redis
+    - roles/custom/matrix-corporal
+    - roles/custom/matrix-bridge-appservice-discord
+    - roles/custom/matrix-bridge-appservice-slack
+    - roles/custom/matrix-bridge-appservice-webhooks
+    - roles/custom/matrix-bridge-appservice-irc
+    - roles/custom/matrix-bridge-appservice-kakaotalk
+    - roles/custom/matrix-bridge-beeper-linkedin
+    - roles/custom/matrix-bridge-go-skype-bridge
+    - roles/custom/matrix-bridge-mautrix-facebook
+    - roles/custom/matrix-bridge-mautrix-twitter
+    - roles/custom/matrix-bridge-mautrix-hangouts
+    - roles/custom/matrix-bridge-mautrix-googlechat
+    - roles/custom/matrix-bridge-mautrix-instagram
+    - roles/custom/matrix-bridge-mautrix-signal
+    - roles/custom/matrix-bridge-mautrix-telegram
+    - roles/custom/matrix-bridge-mautrix-whatsapp
+    - roles/custom/matrix-bridge-mautrix-discord
+    - roles/custom/matrix-bridge-mx-puppet-discord
+    - roles/custom/matrix-bridge-mx-puppet-groupme
+    - roles/custom/matrix-bridge-mx-puppet-steam
+    - roles/custom/matrix-bridge-mx-puppet-slack
+    - roles/custom/matrix-bridge-mx-puppet-twitter
+    - roles/custom/matrix-bridge-mx-puppet-instagram
+    - roles/custom/matrix-bridge-sms
+    - roles/custom/matrix-bridge-heisenbridge
+    - roles/custom/matrix-bridge-hookshot
+    - roles/custom/matrix-bot-matrix-reminder-bot
+    - roles/custom/matrix-bot-matrix-registration-bot
+    - roles/custom/matrix-bot-maubot
+    - roles/custom/matrix-bot-buscarron
+    - roles/custom/matrix-bot-honoroit
+    - roles/custom/matrix-bot-postmoogle
+    - roles/custom/matrix-bot-go-neb
+    - roles/custom/matrix-bot-mjolnir
+    - roles/custom/matrix-cactus-comments
+    - roles/custom/matrix-synapse
+    - roles/custom/matrix-dendrite
+    - roles/custom/matrix-conduit
+    - roles/custom/matrix-synapse-admin
+    - roles/custom/matrix-prometheus-node-exporter
+    - roles/custom/matrix-prometheus-postgres-exporter
+    - roles/custom/matrix-prometheus
+    - roles/custom/matrix-grafana
+    - roles/custom/matrix-registration
+    - roles/custom/matrix-client-element
+    - roles/custom/matrix-client-hydrogen
+    - roles/custom/matrix-client-cinny
+    - roles/custom/matrix-jitsi
+    - roles/custom/matrix-ldap-registration-proxy
+    - roles/custom/matrix-ma1sd
+    - roles/custom/matrix-dimension
+    - roles/custom/matrix-etherpad
+    - roles/custom/matrix-email2matrix
+    - roles/custom/matrix-sygnal
+    - roles/custom/matrix-ntfy
+    - roles/custom/matrix-nginx-proxy
+    - roles/custom/matrix-coturn
+    - roles/custom/matrix-aux
+    - roles/custom/matrix-postgres-backup
+    - roles/custom/matrix-backup-borg
+    - roles/custom/matrix-user-creator
+    - roles/custom/matrix-common-after
 
     # This is pretty much last, because we want it to better serve as a "last known good configuration".
     # See: https://github.com/spantaleev/matrix-docker-ansible-deploy/pull/2217#issuecomment-1301487601
     - when: devture_playbook_state_preserver_enabled | bool
-      role: galaxy/com.devture.ansible.role.playbook_state_preserver
+      role: roles/galaxy/com.devture.ansible.role.playbook_state_preserver
       tags:
         - setup-all
 
-    - role: galaxy/com.devture.ansible.role.playbook_runtime_messages
+    - role: roles/galaxy/com.devture.ansible.role.playbook_runtime_messages
